@@ -38,7 +38,7 @@
           </preloadSources>
           <sourceIncludes>
             <include>app/js/**/*.js</include>
-                        <include>app/data/**/*.js</include>
+            <include>app/data/**/*.js</include>
           </sourceIncludes>
           <jsTestSrcDir>${project.basedir}/test/unit</jsTestSrcDir>
           <browserVersion>FIREFOX_3_6</browserVersion>

@@ -5,12 +5,9 @@
 describe('controllers', function(){
   beforeEach(module('myApp.controllers'));
 
-
-  it('should ....', inject(function() {
-    //spec body
-  }));
-
-  it('should ....', inject(function() {
-    //spec body
-  }));
+  describe('MainController', function() {
+    it('should load issues from JSON report', inject(function(Issue) {
+      // TODO
+    }));
+  });
 });
