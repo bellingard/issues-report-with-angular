@@ -1,16 +1,31 @@
+<div id="reportHeader">
+  <div id="logo"><img src="img/sonarqube-24x100.png" alt="SonarQube"/></div>
+  <div class="title">Issues Report</div>
+  <div class="subtitle">SonarQube - date (todo)</div>
+</div>
+
+<div id="content">
+
+<div id="summary">
+  <table width="100%" class="data">
+    <thead>
+    <tr>
+      <th align="center" width="33%"><span style="font-size:24px; font-weight: bold; color: red">{{newIssuesCount}}</span> <br/>New issues</th>
+      <th align="center" width="33%"><span style="font-size:24px; font-weight: bold; color: green">{{resolvedIssuesCount}}</span> <br/> Resolved issues</th>
+      <th align="center" width="33%"><span style="font-size:24px; font-weight: bold">{{allIssuesCount}}</span> <br/>Issues</th>
+    </tr>
+    </thead>
+  </table>
+</div>
+
 <div class="container-fluid">
-  <div id="summary" class="row-fluid">
-    <div class="span4">New issues<br/> {{newIssuesCount}}</div>
-    <div class="span4">Resolved issues<br/> {{resolvedIssuesCount}}</div>
-    <div class="span4">Total<br/> {{allIssuesCount}}</div>
-  </div>
 
   <div class="row-fluid">
     <div class="span2">
       <!--Sidebar content-->
 
       Search: <input ng-model="issueQuery.message" /> <br/>
-      Is new: <input type="checkbox" ng-model="issueQuery.isNew" /> <br/>
+      Is new: <input type="checkbox" ng-model="issueQuery.isNew"/> <br/>
       Sort by:
       <select ng-model="orderProp">
         <option value="isNew">Is new?</option>
@@ -43,4 +58,5 @@
 
     </div>
   </div>
+</div>
 </div>

@@ -12,6 +12,8 @@ angular.module('myApp.controllers', ['myApp.issuesServices']).
     $scope.newIssuesCount = $filter("filter")($scope.issues, function(issue) {return issue.isNew;}).length;
     $scope.resolvedIssuesCount = $filter("filter")($scope.issues, function(issue) {return issue.status==='RESOLVED';}).length;
 
+    // Filter on new issues by default
+    $scope.issueQuery = {isNew:true};
 
     $scope.$watch("issueQuery", function(query){
       $scope.filteredIssues = $filter("filter")($scope.issues, query);
