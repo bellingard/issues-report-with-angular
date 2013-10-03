@@ -3,12 +3,12 @@
 /* jasmine specs for services go here */
 
 describe('service', function() {
-  beforeEach(module('myApp.services'));
+  beforeEach(module('myApp.issuesServices'));
 
-
-  describe('version', function() {
-    it('should return current version', inject(function(version) {
-      expect(version).toEqual('1.0');
+  describe('loadIssues', function() {
+    it('should load issues from JSON report', inject(function(Issue) {
+      expect(Issue.all().length).toEqual(1019);
     }));
   });
+
 });

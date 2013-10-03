@@ -1,72 +1,73 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.sonarsource</groupId>
-	<artifactId>angular-seed</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<build>
-		<!-- To define the plugin version in your parent POM -->
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>com.github.searls</groupId>
-					<artifactId>jasmine-maven-plugin</artifactId>
-					<version>1.3.1.3</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<!-- To use the plugin goals in your POM or parent POM -->
-		<plugins>
-			<plugin>
-				<groupId>com.github.searls</groupId>
-				<artifactId>jasmine-maven-plugin</artifactId>
-				<!-- <version>1.3.1.3</version> -->
-				<executions>
-					<execution>
-						<goals>
-							<goal>test</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<jsSrcDir>.</jsSrcDir>
-					<preloadSources>
-						<preloadSource>test/lib/angular/jquery.js</preloadSource>
-						<preloadSource>app/lib/angular/angular.js</preloadSource>
-						<preloadSource>test/lib/angular/angular-mocks.js</preloadSource>
-					</preloadSources>
-					<sourceIncludes>
-						<include>app/js/**/*.js</include>
-					</sourceIncludes>
-					<jsTestSrcDir>${project.basedir}/test/unit</jsTestSrcDir>
-					<browserVersion>FIREFOX_3_6</browserVersion>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<executions>
-					<execution>
-						<!-- Ensure surefire runs after Jasmine. - https://issues.jenkins-ci.org/browse/JENKINS-13188 
-							- Maven plugins are run in the order specified in pom.xml, with inherited 
-							plugins first. - So we must redefine the "test" goal's execution to be after 
-							Jasmine. -->
-						<id>surefire-test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>test</goal>
-						</goals>
-						<configuration>
-							<skipTests>${skipTests}</skipTests>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<!-- Disable the default maven-surefire-plugin execution from parent 
-						pom. -->
-					<skipTests>true</skipTests>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sonarsource</groupId>
+  <artifactId>angular-seed</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <build>
+    <!-- To define the plugin version in your parent POM -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.github.searls</groupId>
+          <artifactId>jasmine-maven-plugin</artifactId>
+          <version>1.3.1.3</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <!-- To use the plugin goals in your POM or parent POM -->
+    <plugins>
+      <plugin>
+        <groupId>com.github.searls</groupId>
+        <artifactId>jasmine-maven-plugin</artifactId>
+        <!-- <version>1.3.1.3</version> -->
+        <executions>
+          <execution>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <jsSrcDir>.</jsSrcDir>
+          <preloadSources>
+            <preloadSource>test/lib/angular/jquery.js</preloadSource>
+            <preloadSource>app/lib/angular/angular.js</preloadSource>
+            <preloadSource>test/lib/angular/angular-mocks.js</preloadSource>
+          </preloadSources>
+          <sourceIncludes>
+            <include>app/js/**/*.js</include>
+                        <include>app/data/**/*.js</include>
+          </sourceIncludes>
+          <jsTestSrcDir>${project.basedir}/test/unit</jsTestSrcDir>
+          <browserVersion>FIREFOX_3_6</browserVersion>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <executions>
+          <execution>
+            <!-- Ensure surefire runs after Jasmine. - https://issues.jenkins-ci.org/browse/JENKINS-13188
+              - Maven plugins are run in the order specified in pom.xml, with inherited
+              plugins first. - So we must redefine the "test" goal's execution to be after
+              Jasmine. -->
+            <id>surefire-test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <skipTests>${skipTests}</skipTests>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <!-- Disable the default maven-surefire-plugin execution from parent
+            pom. -->
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
