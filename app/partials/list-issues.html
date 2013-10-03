@@ -23,24 +23,22 @@
   <div class="row-fluid">
     <div class="span2">
       <!--Sidebar content-->
-
-      Search: <input ng-model="issueQuery.message" /> <br/>
-      New issues only: <input type="checkbox" ng-model="issueQuery.isNew" data-ng-false-value=""/> <br/>
-      Sort by:
-      <select ng-model="orderProp">
-        <option value=""></option>
+      <label for="query.message">Search:</label><input id="query.message" ng-model="issueQuery.message" data-ng-false-value=""/> <br/>
+      <label for="query.isnew" style="display:inline">New issues only:</label><input id="query.isnew" type="checkbox" ng-model="issueQuery.isNew" data-ng-false-value=""/> <br/>
+      <label for="query.sort">Sort by:</label>
+      <select id="query.sort" ng-model="orderProp">
         <option value="severity">Severity</option>
         <option value="status">Status</option>
       </select>
       <br/>
-      Group by:
-      <select ng-model="groupByProp">
+      <label for="query.group">Group by:</label>
+      <select id="query.group" ng-model="groupByProp">
         <option value=""></option>
         <option value="component">Component</option>
         <option value="rule">Rule</option>
       </select>
       <br/>
-      Rule:
+      <label for="query.rule">Rule:</label>
       <select ng-model="issueQuery.rule">
         <option value="">All</option>
         <option ng-repeat="ruleItem in rules" value="{{ruleItem.rule.key}}" ng-selected="ruleItem.rule.key===issueQuery.rule">{{ruleItem.rule.name}} ({{ruleItem.count}})</option>
