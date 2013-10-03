@@ -13,6 +13,7 @@ angular.module('myApp.controllers', ['myApp.issuesServices']).
 
     // Filter on new issues by default
     $scope.issueQuery = {isNew:true};
+    $scope.groupByProp = 'component';
 
     $scope.$watch("issueQuery", function(query){
       $scope.filteredIssues = $filter("filter")($scope.issues, query);

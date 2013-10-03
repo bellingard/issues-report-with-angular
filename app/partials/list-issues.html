@@ -28,12 +28,14 @@
       New issues only: <input type="checkbox" ng-model="issueQuery.isNew" data-ng-false-value=""/> <br/>
       Sort by:
       <select ng-model="orderProp">
+        <option value=""></option>
         <option value="severity">Severity</option>
         <option value="status">Status</option>
       </select>
       <br/>
       Group by:
       <select ng-model="groupByProp">
+        <option value=""></option>
         <option value="component">Component</option>
         <option value="rule">Rule</option>
       </select>
