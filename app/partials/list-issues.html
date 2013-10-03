@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div id="summary">
+
+  New issues: {{newIssuesCount}} <br/>
+  Resolved issues: {{resolvedIssuesCount}} <br/>
+  Total: {{allIssuesCount}} <br/>
+
+  </div>
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="issueQuery.message" /> <br/>
+      Is new: <input type="checkbox" ng-model="issueQuery.isNew" /> <br/>
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="isNew">Is new?</option>
+        <option value="severity">Severity</option>
+        <option value="status">Status</option>
+      </select>
+
+      <br>
+      Filtered {{filteredIssues.length}}
+
+    </div>
+    <div class="span10">
+      <!--Body content-->
+
+      <ul>
+        <li ng-repeat="issue in filteredIssues | orderBy:orderProp">
+        <p style="font-size: large;">
+          <img ng-src="http://nemo.sonarsource.org/images/priority/{{issue.severity}}.png" />
+          {{issue.message}}</p>
+          <ul>
+
+          <li>Status: {{issue.status}}</li>
+          <li>Component key: {{issue.component}}</li>
+          <li>Line: {{issue.line}}</li>
+          <li>Is new: {{issue.isNew}}</li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
