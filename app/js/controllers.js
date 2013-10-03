@@ -5,9 +5,8 @@
 angular.module('myApp.controllers', ['myApp.issuesServices']).
 
   /* Main controler */
-  controller('Main', ['$scope', '$filter', 'Issue', function($scope, $filter, Issue) {
+  controller('Main', ['$scope', '$filter', 'Issue', 'Rule', function($scope, $filter, Issue, Rule) {
     $scope.issues = Issue.all();
-
     $scope.allIssuesCount = $scope.issues.length;
     $scope.newIssuesCount = $filter("filter")($scope.issues, function(issue) {return issue.isNew;}).length;
     $scope.resolvedIssuesCount = $filter("filter")($scope.issues, function(issue) {return issue.status==='RESOLVED';}).length;
@@ -17,7 +16,22 @@ angular.module('myApp.controllers', ['myApp.issuesServices']).
 
     $scope.$watch("issueQuery", function(query){
       $scope.filteredIssues = $filter("filter")($scope.issues, query);
+      $scope.rules = $.map(Rule.all(), function(rule) {
+        return {'rule': rule, 'count': $.grep($scope.filteredIssues,
+            function( issue ) {
+              return issue.rule === rule.key;
+            }).length
+        };
+      });
     }, true);
+
+    $scope.rules = $.map(Rule.all(), function(rule) {
+      return {'rule': rule, 'count': $.grep($scope.issues,
+          function( issue ) {
+            return issue.rule === rule.key;
+          }).length
+      };
+    });
 
   }])
 

@@ -32,6 +32,18 @@
         <option value="severity">Severity</option>
         <option value="status">Status</option>
       </select>
+      <br/>
+      Group by:
+      <select ng-model="groupByProp">
+        <option value="component">Component</option>
+        <option value="rule">Rule</option>
+      </select>
+      <br/>
+      Rule:
+      <select ng-model="issueQuery.rule">
+        <option value="">All</option>
+        <option ng-repeat="ruleItem in rules" value="{{ruleItem.rule.key}}" ng-selected="ruleItem.rule.key===issueQuery.rule">{{ruleItem.rule.name}} ({{ruleItem.count}})</option>
+      </select>
 
       <br>
       Filtered {{filteredIssues.length}}
@@ -41,7 +53,7 @@
       <!--Body content-->
 
       <ul>
-        <li ng-repeat="issue in filteredIssues | orderBy:orderProp" class="issue" ng-class-odd="'odd'" ng-class-even="'even'">
+        <li ng-repeat="issue in filteredIssues | orderBy:[groupByProp, orderProp]" class="issue" ng-class-odd="'odd'" ng-class-even="'even'">
         <p class="message sev-{{issue.severity}}">
           {{issue.message}}</p>
           <ul>
