@@ -25,10 +25,9 @@
       <!--Sidebar content-->
 
       Search: <input ng-model="issueQuery.message" /> <br/>
-      Is new: <input type="checkbox" ng-model="issueQuery.isNew"/> <br/>
+      New issues only: <input type="checkbox" ng-model="issueQuery.isNew" data-ng-false-value=""/> <br/>
       Sort by:
       <select ng-model="orderProp">
-        <option value="isNew">Is new?</option>
         <option value="severity">Severity</option>
         <option value="status">Status</option>
       </select>
