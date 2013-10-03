@@ -17,7 +17,7 @@ angular.module('myApp.controllers', ['myApp.issuesServices']).
     $scope.$watch("issueQuery", function(query){
       $scope.filteredIssues = $filter("filter")($scope.issues, query);
       $scope.rules = $.map(Rule.all(), function(rule) {
-        return {'rule': rule, 'count': $.grep($scope.filteredIssues,
+        return {'rule': rule, 'count': $.grep($scope.issues,
             function( issue ) {
               return issue.rule === rule.key;
             }).length
