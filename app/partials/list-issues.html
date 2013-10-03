@@ -41,16 +41,15 @@
       <!--Body content-->
 
       <ul>
-        <li ng-repeat="issue in filteredIssues | orderBy:orderProp">
-        <p style="font-size: large;">
-          <img ng-src="http://nemo.sonarsource.org/images/priority/{{issue.severity}}.png" />
+        <li ng-repeat="issue in filteredIssues | orderBy:orderProp" class="issue" ng-class-odd="'odd'" ng-class-even="'even'">
+        <p class="message sev-{{issue.severity}}">
           {{issue.message}}</p>
           <ul>
 
-          <li>Status: {{issue.status}}</li>
-          <li>Component key: {{issue.component}}</li>
-          <li>Line: {{issue.line}}</li>
-          <li>Is new: {{issue.isNew}}</li>
+          <li class="status">{{issue.status}}</li>
+          <li class="component">{{issue.component}}</li>
+          <li class="line">Line: {{issue.line}}</li>
+          <li class="isnew isnew-{{issue.isNew}}" title="Is new: {{issue.isNew}}">&nbsp;</li>
 
           </ul>
         </li>

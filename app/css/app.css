@@ -1,35 +1,124 @@
 /* app css stylesheet */
-
 #summary {
-  font-size: x-large;
-  font-weight: bold;
+	font-size: x-large;
+	font-weight: bold;
 }
 
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+	list-style: none;
+	border-bottom: 0.1em solid black;
+	margin-bottom: 2em;
+	padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+	content: "[";
 }
 
 .menu:after {
-  content: "]";
+	content: "]";
 }
 
-.menu > li {
-  display: inline;
+.menu>li {
+	display: inline;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+.menu>li:before {
+	content: "|";
+	padding-right: 0.3em;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+.menu>li:nth-child(1):before {
+	content: "";
+	padding: 0;
+}
+
+.issue {
+	list-style: none;
+	display: inline-block;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 1px solid rgb(239, 239, 239);
+	margin: 0;
+	height: 50px;
+}
+
+li.even {
+	background-color: rgb(255, 255, 255);
+}
+
+li.odd {
+	background-color: rgb(239, 239, 239);
+}
+
+.issue ul li {
+	display: inline;
+	list-style: none;
+	margin-left: 5px;
+	float: left;
+}
+
+.issue p.message {
+	float: left;
+	width: 100%;
+	padding-left: 25px;
+	background-repeat: no-repeat;
+	background-position: 5px 0;
+	font-size: large;
+}
+
+.sev-BLOCKER {
+	background-image: url('../img/BLOCKER.png')
+}
+
+.sev-CRITICAL {
+	background-image: url('../img/CRITICAL.png')
+}
+
+.sev-INFO {
+	background-image: url('../img/INFO.png')
+}
+
+.sev-MAJOR {
+	background-image: url('../img/MAJOR.png')
+}
+
+.sev-MINOR {
+	background-image: url('../img/MINOR.png')
+}
+
+.status {
+	width: 10%;
+}
+
+.component {
+	width: 50%;
+}
+
+.line {
+	width: 10%;
+}
+
+.isnew {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	vertical-align: middle;
+	border-radius: 100px 100px 100px 100px;
+}
+
+.isnew-false {
+	font-weight: bold;
+	background-color: rgb(127, 127, 127);
+	box-shadow: 0px 1px 0px rgba(63, 63, 63, 0.15) inset;
+}
+
+.isnew-true {
+	font-weight: bold;
+	background-color: rgb(160, 105, 50);
+	background-image: linear-gradient(rgb(196, 131, 65), rgb(160, 105, 50));
+	background-repeat: repeat-x;
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 1px 0px
+		rgba(0, 0, 0, 0.1), 0px 0px 10px rgb(196, 131, 65);
 }
